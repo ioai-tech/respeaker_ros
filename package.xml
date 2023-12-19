@@ -14,7 +14,7 @@
   <depend>dynamic_reconfigure</depend>
   <depend>geometry_msgs</depend>
   <depend>portaudio19-dev</depend>
-  <depend>python-pyaudio</depend>
+  <depend>python3-pyaudio</depend>
   <depend>speech_recognition_msgs</depend>
   <depend>std_msgs</depend>
   <depend>tf</depend>
