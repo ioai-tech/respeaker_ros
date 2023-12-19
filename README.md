@@ -18,8 +18,8 @@ A ROS Package for Respeaker Mic Array
     mkdir -p ~/catkin_ws/src && ~/catkin_ws/src
     git clone https://github.com/furushchev/respeaker_ros.git
     cd ~/catkin_ws
-    source /opt/ros/kinetic/setup.bash
-    rosdep install --from-paths src -i -r -n -y
+    source /opt/ros/${ROS_DISTRO}/setup.bash
+    rosdep install --from-paths src/respeaker_ros -i -r -n -y
     catkin config --init
     catkin build respeaker_ros
     source ~/catkin_ws/devel/setup.bash
