@@ -18,7 +18,7 @@ class SpeechToText(object):
         self.sample_rate = rospy.get_param("~sample_rate", 16000)
         self.sample_width = rospy.get_param("~sample_width", 2)
         # language of STT service
-        self.language = rospy.get_param("~language", "en-us")
+        self.language = rospy.get_param("~language", "english")
         # ignore voice input while the robot is speaking
         self.self_cancellation = rospy.get_param("~self_cancellation", True)
         # time to assume as SPEAKING after tts service is finished
@@ -69,8 +69,8 @@ class SpeechToText(object):
         data = SR.AudioData(msg.data, self.sample_rate, self.sample_width)
         try:
             rospy.loginfo("Waiting for result %d" % len(data.get_raw_data()))
-            result = self.recognizer.recognize_google(
-                data, language=self.language)
+            result = self.recognizer.recognize_whisper(
+                data, language=self.language, model="small")
             msg = SpeechRecognitionCandidates(transcript=[result])
             self.pub_speech.publish(msg)
         except SR.UnknownValueError as e:
